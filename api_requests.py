@@ -21,7 +21,7 @@ def create_article(title, text, source, url_article):
         requests.Response: The response object from the POST request.
     """
     try:
-        api_endpoint = '/api/articles'  # Define the API endpoint path
+        api_endpoint = '/api/service/create-article'  # Define the API endpoint path
         url = f'{base_url}{api_endpoint}'
 
         data = {
@@ -30,7 +30,7 @@ def create_article(title, text, source, url_article):
             'source': source,
             'url': url_article
         }
-        headers = {'Content-Type': 'application/json'}
+        headers = {'Content-Type': 'application/json', 'Authorization': 'dQYbeeJkn3rAoh9soNFp9dUhD6pJoUIdplQiEBO9VUflDuXqMRsGqWzIaKoLhagP'}
 
         response = requests.post(url, data=json.dumps(data), headers=headers)
         response.raise_for_status()  # Raise an exception for HTTP errors (4xx and 5xx status codes)
